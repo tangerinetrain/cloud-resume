@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.name {
+	text-align: center;
+    color: blue;
+    font-size: 35px;
+}
+.contact {
+	text-align: center;
+}
+.section {
+	color: blue;
+    font-size: 20px;
+    font-weight: bold;
+}
+.company {
+	color: #07108f;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: left;
+}
+.right {
+	float:right;
+}
+.title {
+	color: #07108f;
+    font-size: 15px;
+    font-style: italic;
+}
+ul.a {
+  list-style-type: square;
+}
+* {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+#visitor-count {
+      font-family: Arial, sans-serif;
+      font-size: 1.5rem;        /* Bigger text */
+      font-weight: bold;        /* Bold */
+      color: #2c3e50;           /* Dark blue-gray */
+      background: #f1f8ff;      /* Light blue background */
+      padding: 10px 15px;
+      border-radius: 8px;
+      display: inline-block;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+</style>
+</head>
+<body>
+<h1 class="name">Nathan Ferguson</h1>
+<p class="contact"><a href="mailto:nathanferguson@live.com">nathanferguson@live.com</a> | 817-701-5929 | Denton, TX 76210</p>
+
+<h2 class="section">WORK EXPERIENCE</h2>
+<p class="company">Atlassian<span class="right">June 2024-August 2025</span></p>
+<p class="title">Jira Cloud Support Engineer<span class="right">Denton, TX (Remote)</span></p>
+<ul class="a">
+	<li>Delivered expert technical support to small and mid-sized customers using Jira Cloud, identifying and resolving product bugs, feature requests, configuration issues, and general usage inquiries.</li>
+	<li>Consistently achieved top-tier customer satisfaction, earning high CSAT and NPS ratings through clear, solutions-oriented communication.</li>
+	<li>Managed a high volume of support tickets across all priority levels; participated in a rotating schedule to triage and resolve critical-level issues.</li>
+	<li>Provided support primarily via email and phone, with additional coverage for live chat as needed.
+	<li>Utilized internal tools such as database query systems, Splunk, and browser/network/console logs to investigate and resolve complex technical problems.</li>
+</ul>
+<p class="company">Kaltura<span class="right">Oct 2020-May 2024</span></p>
+<p class="title">Senior Platinum Support Engineer<span class="right">Denton, TX (Remote)</span></p>
+<ul class="a">
+	<li>Worked as the dedicated technical support engineer assigned to customers paying for the highest support level using the Kaltura platform. Daily activities included monitoring Salesforce cases from assigned accounts and triaging customer issues</li>
+	<li>After triaging customer issues, would consolidate information and escalate with Tier 3 Support to better understand the products and alert them to issues where code fixes were needed using Jira and Confluence.</li>
+	<li>Duties would involve troubleshooting product issues, HTML/CSS embed codes, interacting with APIs,analyzing browser network logs, SQL database querying, analyzing logs, SSL certificate creation. Also conducted trainings with other team members to educate on best practices and creating help documentation for teammates and end user documentation.</li>
+	<li>Worked directly with customers in regular meetings and prioritized requests and issues accordingly.</li>
+</ul>
+<p class="company">Infosys International Inc.<span class="right">Jan 2019-Oct 2020</span></p>
+<p class="title">System Engineer II<span class="right">Richardson, TX</span></p>
+<ul class="a">
+	<li>Worked as primary infrastructure support for several vendor applications running on virtual and on-premise hardware.</li>
+	<li>Responsible for the installation, configuration, patching, and maintenance in both Windows and Linux environments.</li>
+	<li>Created runbooks and design documents for applications installed in multi-server environments </li>
+	<li>Participated in on-call rotations for all applications in our group and off hour support/releases.</li>
+</ul>
+<p class="company">Verizon<span class="right">Aug 2014 - Dec 2018</span></p>
+<p class="title">System Engineer II<span class="right">Irving, TX</span></p>
+<ul class="a">
+	<li>Supported an internally developed knowledge management system, including Java/HTML code fixes, trouble ticket tracking, leading meetings with business stakeholders, building reporting dashboards, user setup and support.</li>
+	<li>Supported the vendor-based survey tool Verint EFM; provided end user support for business partners and end users, upgrading, using vendor application’s API to build data extraction program for reporting, installing the reporting software JReport, and adding additional functionalities like SMS survey capability. </li>
+</ul>
+<h2 class="section">ADDITIONAL SKILLS</h2>
+<ul class="a">
+	<li>Experienced with Apache Tomcat, Apache HTTP Server, and Oracle Weblogic</li>
+	<li>Experienced with building SQL queries in MS SQL, Oracle SQL, and MySQL</li>
+	<li>Built Powershell automation scripts creation for SFTP processes and system tasks such as Windows services and restart jobs using Task Scheduler</li>
+	<li>Familiar with cloud concepts and some experience with Amazon Web Services (AWS) and Microsoft Azure</li>
+	<li>Experienced with collaboration and communication tools like Teams, Jira, Confluence, Salesforce</li>
+</ul>
+<h2 class="section">ACCOMPLISHMENTS</h2>
+<ul class="a">
+	<li>Successfully led initiative to redesign older infrastructure setup and fully migrate vendor survey application from Windows 2008 R2 virtual servers to 2012 servers independently without vendor support</li>
+	<li>Worked with internal groups to set up a VPN secured connection from application to an external SMS gateway</li>
+	<li>Researched and set up an open source alternative for vendor survey application on AWS EC2 instances using RDS to reduce server, OS, and vendor licensing costs</li>
+</ul>
+<h2 class="section">EDUCATION</h2>
+<p class="company">Texas State University<span class="right">August 2014</span></p>
+<p class="title">BBA: Computer Information Systems And Quantitative Methods<span class="right">San Marcos, TX</span></p>
+
+<h2 class="section">CERTIFICATIONS</h2>
+Microsoft Certified: Azure Fundamentals<span class="right">Jul 2020</span></p>
+AWS Certified Solutions Architect – Associate<span class="right">Nov 2017</span></p>
+MTA: Windows Operating System Fundamentals<span class="right">2016</span></p>
+MTA: Security Fundamentals<span class="right">2016</span></p>
+</body>
+
+<p id="visitor-count">Loading...</p>
+
+  <script>
+    const API_URL = "https://8xryi8vbo3.execute-api.us-east-1.amazonaws.com/default/visitorcount";
+
+    async function fetchAndShowCount() {
+      try {
+        const res = await fetch(API_URL, { method: "POST" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json(); // expects {"count": 123}
+        document.getElementById("visitor-count").textContent = `Visitor count: ${data.count}`;
+      } catch (err) {
+        console.error("Failed to fetch visitor count:", err);
+        document.getElementById("visitor-count").textContent = "Visitor count: Error";
+      }
+    }
+
+    window.addEventListener("DOMContentLoaded", fetchAndShowCount);
+  </script>
+
+</script>
+</html>
