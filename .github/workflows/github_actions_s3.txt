@@ -1,0 +1,34 @@
+# .github/workflows/deploy-to-s3.yml
+name: Deploy to S3
+
+on:
+  push:
+    branches: [ main ]  # or whatever your default branch is
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1  # Change to your bucket's region
+    
+    - name: Upload specific file to S3
+      run: |
+        aws s3 cp ./index.html s3://your-bucket-name/index.html
+    
+    # Optional: Invalidate CloudFront cache if you're using it
+    - name: Invalidate CloudFront
+      run: |
+        aws cloudfront create-invalidation --distribution-id YOUR_DISTRIBUTION_ID --paths "/*"
+      # Only run this step if you have CloudFront
+      if: false  # Change to true if you want to use this
