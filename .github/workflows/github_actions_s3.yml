@@ -24,7 +24,7 @@ jobs:
     
     - name: Upload specific file to S3
       run: |
-        aws s3 cp ./website/index.html s3.us-east-1.amazonaws.com/nathanferguson.me/index.html
+        aws s3 cp ./website/index.html s3://nathanferguson.me/index.html
     
     # Optional: Invalidate CloudFront cache if you're using it
     - name: Invalidate CloudFront
